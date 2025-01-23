@@ -4,7 +4,7 @@ import { Task } from '@/interfaces';
 import { useTaskStore } from '@/store/useTaskStore';
 
 export const useCreateTask = () => {
-  const addTask = useTaskStore((state) => state.addTask);
+  const { addTask } = useTaskStore((state) => state);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState<Task | null>(null);
