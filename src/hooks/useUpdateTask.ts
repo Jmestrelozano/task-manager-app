@@ -6,7 +6,7 @@ import { useTaskStore } from '@/store/useTaskStore';
 import { Task } from '@/interfaces';
 
 export const useUpdateTask = () => {
-  const updateTaskStore = useTaskStore((state) => state.updateTask);
+  const { updateTask: updateTaskStore } = useTaskStore((state) => state);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<Task | null>(null);
