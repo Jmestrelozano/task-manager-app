@@ -9,7 +9,7 @@ interface UseTasksResult {
 }
 
 export const useTasks = (): UseTasksResult => {
-  const setTasks = useTaskStore((state) => state.setTasks);
+  const {setTasks} = useTaskStore((state) => state);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
