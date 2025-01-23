@@ -1,10 +1,6 @@
 import { NextResponse } from "next/server";
 import { db } from "../../db/db";
 
-interface IParams {
-  id?: string;
-}
-
 export async function PUT(request: Request) {
   const id = request.url.split("/").pop();
   const taskIndex = db.findTaskIndex(id!);
@@ -24,7 +20,7 @@ export async function PUT(request: Request) {
   return NextResponse.json(updatedTask, { status: 200 });
 }
 
-export async function DELETE(request: Request, context: { params: IParams }) {
+export async function DELETE(request: Request) {
   const id = request.url.split("/").pop();
 
   const taskIndex = db.findTaskIndex(id!);

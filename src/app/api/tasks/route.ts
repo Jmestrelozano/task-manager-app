@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import {db} from "../db/db"
 
-export async function GET(request: Request) {
+export async function GET() {
   const tasks = db.getTasks();
   return NextResponse.json(tasks, { status: 200 });
 }
 
-export async function POST(request: Request, res: Response) {
+export async function POST(request: Request) {
   const body = await request.json();
   const { title, description, stage, priority, date } = body;
 
