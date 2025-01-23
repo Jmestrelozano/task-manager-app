@@ -3,7 +3,7 @@ import { deleteTask } from '../services/tasks/deleteTask';
 import { useTaskStore } from '@/store/useTaskStore';
 
 export const useDeleteTask = () => {
-  const setTasks = useTaskStore(state => state.setTasks)
+  const { setTasks } = useTaskStore(state => state)
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
