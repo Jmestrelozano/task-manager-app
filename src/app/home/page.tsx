@@ -1,8 +1,9 @@
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+
 import { Tasks } from "@/components/home/Tasks";
 import { TasksContainer } from "@/components/home/task/TasksContainer";
+import { authOptions } from "../api/auth";
 
 export default async function HomePage() {
   const session = await getServerSession(authOptions);
