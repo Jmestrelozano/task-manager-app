@@ -7,7 +7,7 @@ import { TaskTableRow } from "./TaskTableRow";
 import { ITable } from "@/interfaces";
 
 export const TaskTable: FC<ITable> = ({ tasks }) => {
-  const { mutate: deleteTask } = useDeleteTask();
+  const { mutate } = useDeleteTask();
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [selectedTaskId, setSelectedTaskId] = useState<string>("");
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -23,7 +23,7 @@ export const TaskTable: FC<ITable> = ({ tasks }) => {
   };
 
   const confirmDeleteTask = () => {
-    deleteTask(selectedTaskId);
+    mutate(selectedTaskId);
     setIsDeleteDialogOpen(false);
   };
 

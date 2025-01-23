@@ -14,6 +14,7 @@ export const ButtonIcon:FC<IButtonIcon> = ({ icon, className, label, type, onCli
     <button
       type={type || "button"}
       className={cn("px-3 py-2 outline-none", className)}
+      aria-label={label}
       onClick={onClick}
     >
       <span>{label}</span>
