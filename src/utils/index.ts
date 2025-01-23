@@ -1,34 +1,39 @@
 /**
- * Formatea la fecha en el formato "DD-MMM-YYYY"
+ * Formatea la fecha en el formato "DD-MMM-YYYY".
  * @param {Date} date - La fecha que se va a formatear.
- * @returns {string} La fecha formateada.
+ * @returns {string} La fecha formateada en el formato "DD-MMM-YYYY".
  */
 export const formatDate = (date: Date) => {
+  if (isNaN(date.getTime())) {
+    return ""; // Devuelve una cadena vacía si la fecha es inválida
+  }
+
   const month = date.toLocaleString("en-US", { month: "short" });
-  const day = date.getDate();
-  const year = date.getFullYear();
+  const day = date.getUTCDate(); // Usar UTC
+  const year = date.getUTCFullYear(); // Usar UTC
 
   const formattedDate = `${day}-${month}-${year}`;
   return formattedDate;
 };
 
 /**
- * Formatea una cadena de fecha en formato "YYYY-MM-DD"
+ * Formatea una cadena de fecha en formato "YYYY-MM-DD".
  * @param {string} dateString - La fecha en formato de cadena a formatear.
- * @returns {string} La fecha formateada o "Invalid Date" si la fecha es inválida.
+ * @returns {string | null} La fecha formateada o null si la fecha es inválida.
  */
-export function dateFormatter(dateString: string) {
-  const inputDate = new Date(dateString);
+export function dateFormatter(dateString: string): string | null {
+  const [year, month, day] = dateString.split('-').map(Number);
+  const inputDate = new Date(Date.UTC(year, month - 1, day));
 
   if (isNaN(inputDate.getTime())) {
-    return "Invalid Date";
+    return null; // Devuelve null si la fecha es inválida
   }
 
-  const year = inputDate.getFullYear();
-  const month = String(inputDate.getMonth() + 1).padStart(2, "0");
-  const day = String(inputDate.getDate()).padStart(2, "0");
+  const formattedYear = inputDate.getUTCFullYear();
+  const formattedMonth = String(inputDate.getUTCMonth() + 1).padStart(2, "0");
+  const formattedDay = String(inputDate.getUTCDate()).padStart(2, "0");
 
-  const formattedDate = `${year}-${month}-${day}`;
+  const formattedDate = `${formattedYear}-${formattedMonth}-${formattedDay}`;
   return formattedDate;
 }
 
@@ -46,6 +51,11 @@ export const getInitials = (fullName: string): string => {
   return initialsStr;
 };
 
+/**
+ * Capitaliza la primera letra de cada palabra en una cadena.
+ * @param {string} str - La cadena de texto a capitalizar.
+ * @returns {string} La cadena con la primera letra de cada palabra capitalizada.
+ */
 export const capitalizeWords = (str: string): string => {
   return str
     .split(" ")
