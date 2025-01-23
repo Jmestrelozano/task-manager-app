@@ -1,3 +1,5 @@
+Aquí tienes el `README.md` actualizado con las variables de entorno y las URLs para el backend local y de producción:
+
 ```markdown
 # Proyecto Next.js - Gestión de Tareas
 
@@ -15,7 +17,7 @@ Asegúrate de tener instalados los siguientes programas en tu máquina:
 1. Clona este repositorio en tu máquina local:
 
    ```bash
-   git clone <url-del-repositorio>
+   git clone https://github.com/Jmestrelozano/task-manager-app.git
    ```
 
 2. Navega al directorio del proyecto:
@@ -38,6 +40,24 @@ Asegúrate de tener instalados los siguientes programas en tu máquina:
 
    Esto iniciará la aplicación en `http://localhost:3000`.
 
+## Variables de Entorno
+
+Asegúrate de definir las siguientes variables de entorno en tu archivo `.env.local` para la configuración de autenticación y la URL de la API:
+
+```bash
+NEXTAUTH_SECRET=secret_key
+NEXTAUTH_URL=http://localhost:3000
+NEXT_PUBLIC_API_URL=http://localhost:3000/api
+```
+
+Para producción, puedes usar las siguientes variables en el archivo `.env.production`:
+
+```bash
+NEXTAUTH_SECRET=secret_key
+NEXTAUTH_URL=https://task-manager-app-vi3q.vercel.app
+NEXT_PUBLIC_API_URL=https://task-manager-app-vi3q.vercel.app/api
+```
+
 ## Estructura del Proyecto
 
 - **/pages**: Contiene las páginas principales del proyecto.
@@ -57,18 +77,16 @@ Obtiene la lista de todas las tareas.
 
 **Respuesta Exitosa:**
 ```json
-[
-  {
-    "_id": "1",
-    "title": "Tarea 1",
-    "description": "Descripción de la tarea 1",
-    "stage": "pendiente",
-    "priority": "alta",
-    "date": "2025-01-23T00:00:00.000Z",
-    "createdAt": "2025-01-23T00:00:00.000Z",
-    "updatedAt": "2025-01-23T00:00:00.000Z"
-  }
-]
+[{
+  "_id": "1",
+  "title": "Tarea 1",
+  "description": "Descripción de la tarea 1",
+  "stage": "pendiente",
+  "priority": "alta",
+  "date": "2025-01-23T00:00:00.000Z",
+  "createdAt": "2025-01-23T00:00:00.000Z",
+  "updatedAt": "2025-01-23T00:00:00.000Z"
+}]
 ```
 
 ### `POST /api/tasks`
@@ -135,18 +153,16 @@ Elimina una tarea existente.
 
 **Respuesta Exitosa:**
 ```json
-[
-  {
-    "_id": "2",
-    "title": "Tarea nueva",
-    "description": "Descripción de la nueva tarea",
-    "stage": "pendiente",
-    "priority": "alta",
-    "date": "2025-01-23T00:00:00.000Z",
-    "createdAt": "2025-01-23T00:00:00.000Z",
-    "updatedAt": "2025-01-23T00:00:00.000Z"
-  }
-]
+[{
+  "_id": "2",
+  "title": "Tarea nueva",
+  "description": "Descripción de la nueva tarea",
+  "stage": "pendiente",
+  "priority": "alta",
+  "date": "2025-01-23T00:00:00.000Z",
+  "createdAt": "2025-01-23T00:00:00.000Z",
+  "updatedAt": "2025-01-23T00:00:00.000Z"
+}]
 ```
 
 ## Autenticación
@@ -246,4 +262,3 @@ Las contribuciones son bienvenidas. Si deseas mejorar el proyecto, por favor cre
 ## Licencia
 
 Este proyecto está bajo la licencia MIT.
-```
