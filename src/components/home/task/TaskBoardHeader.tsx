@@ -10,7 +10,7 @@ export const TaskBoardHeader = ({ onFilter }: any) => {
   };
 
   return (
-    <div className="w-full flex justify-between gap-4 md:gap-x-12 py-4">
+    <div className="overflow-x-auto w-full flex justify-between gap-4 md:gap-x-12 py-4">
       <TaskTitle
         label="All"
         className={TASK_TYPE_STYLES.Completed}
