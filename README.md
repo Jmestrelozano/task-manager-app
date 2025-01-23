@@ -191,7 +191,7 @@ El proyecto utiliza **Tailwind CSS** para los estilos, lo que permite un diseño
 
 El proyecto ha sido desplegado en **Vercel**. Puedes acceder a la versión en producción a través del siguiente enlace:
 
-[Enlace a la aplicación en producción](task-manager-app-vi3q.vercel.app)
+[Enlace a la aplicación en producción](https://task-manager-app-vi3q.vercel.app/)
 
 ## Repositorio
 
