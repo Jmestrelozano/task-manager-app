@@ -32,7 +32,7 @@ export const TaskCard: FC<ITaskCard> = ({ task }) => {
     }
   };
   return (
-    <div className="w-full h-fit bg-white shadow-md p-4 rounded-md">
+    <article className="w-full h-fit bg-white shadow-md p-4 rounded-md">
       <div className="flex flex-col gap-2">
         <div className="w-full flex justify-between">
           <div
@@ -60,6 +60,6 @@ export const TaskCard: FC<ITaskCard> = ({ task }) => {
           <span className="text-gray-500">No Sub Task</span>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
