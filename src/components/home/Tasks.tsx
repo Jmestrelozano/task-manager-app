@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { IoMdAdd } from "react-icons/io";
 import { ButtonIcon } from "@/components/common/buttons/ButtonIcon";
@@ -36,7 +36,7 @@ export const Tasks = () => {
 
   const renderContent = () => {
     return (
-      <div className="p-4 2xl:px-10 bg-gray-50 h-screen">
+      <Fragment>
         <div className="flex items-center justify-between mb-4">
           <Title
             title={status ? `${status} Tasks` : "Tasks"}
@@ -66,7 +66,7 @@ export const Tasks = () => {
         </Tabs>
 
         <AddTaskModal isOpen={open} setIsOpen={setOpen} />
-      </div>
+      </Fragment>
     );
   };
 

@@ -1,8 +1,8 @@
 export const SkeletonTask = () => {
   return (
-    <div className="w-full py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 2xl:gap-10">
+    <div data-testid="skeleton-task-container" className="w-full py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 2xl:gap-10">
       {Array.from({ length: 6 }).map((_, index) => (
-        <div
+        <article
           key={index}
           className="w-full h-fit bg-white shadow-md p-4 rounded-md animate-pulse"
         >
@@ -25,7 +25,7 @@ export const SkeletonTask = () => {
               <span className="w-20 h-4 bg-gray-300 rounded"></span>
             </div>
           </div>
-        </div>
+        </article>
       ))}
     </div>
   );

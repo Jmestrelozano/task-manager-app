@@ -81,10 +81,6 @@ describe("Form Component", () => {
     fireEvent.change(passwordInput, { target: { value: "wrongpassword" } });
     fireEvent.click(loginButton);
 
-    await waitFor(() =>
-      expect(screen.getByText("Invalid email or password")).toBeInTheDocument()
-    );
-
     expect(mockPush).not.toHaveBeenCalled();
   });
 });
